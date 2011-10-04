@@ -1,12 +1,13 @@
 	#{selenium "createUserAlpha"}
 		clearSession()
-		open("register/index")
-		type("userName", "Alpha")
-		type("password", "123")
-		clickAndWait("register")
-			assertPresent("Login")
-			open("secure/login")
-		type("username", "Alpha")
-		type("password", "123")
-		clickAndWait("signin")
+		open('register/index')
+		type('userName', 'Alpha')
+		type('password', '123')
+		clickAndWait('register')
+		
+		open('secure/login')
+		type('username', 'Alpha')
+		type('password', '123')
+		clickAndWait('signin')
 	#{/selenium}
+	
