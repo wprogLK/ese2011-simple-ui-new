@@ -21,32 +21,21 @@ import models.AppExceptions.*;
 /**
  * @author Lukas Keller
  * @author Renato Corti
- *
  */
-
-@RunWith(JExample.class)
 public class SortTest extends TestTemplate
 {
-	private IUser userAlpha;
-
 	@Test
-	public AppCalendar sortTest() throws UsernameAlreadyExistException, UnknownUserException, AccessDeniedException
+	public void sortCheck() throws AccessDeniedException, InvalidDateException, UnknownCalendarException, UnknownEventException, ParseException, CalendarIsNotUniqueException, UsernameAlreadyExistException, UnknownUserException
 	{
-		AppCalendar app = new AppCalendar();
-		app.createUser("Alpha", "123");
-		this.userAlpha = app.loginUser("Alpha", "123");
-		return app;
-	}
+		AppCalendar app=this.init();
+		IUser userAlpha= app.loginUser("Alpha", "123");	
+	
+		userAlpha.createNewCalendar("MyCalendar");
+		userAlpha.createPrivateEvent("MyCalendar", "Event 1", this.stringParseToDate("01.01.2000"), this.stringParseToDate("2.01.2000"));
+		userAlpha.createPrivateEvent("MyCalendar", "Event 3", this.stringParseToDate("02.08.2011"), this.stringParseToDate("3.09.2011"));
+		userAlpha.createPrivateEvent("MyCalendar", "Event 2", this.stringParseToDate("08.06.2006"), this.stringParseToDate("10.06.2006"));
 
-	@Given("sortTest")
-	public AppCalendar sortCheck(AppCalendar app) throws AccessDeniedException, InvalidDateException, UnknownCalendarException, UnknownEventException, ParseException, CalendarIsNotUniqueException
-	{
-		this.userAlpha.createNewCalendar("MyCalendar");
-		this.userAlpha.createPrivateEvent("MyCalendar", "Event 1", this.stringParseToDate("01.01.2000"), this.stringParseToDate("2.01.2000"));
-		this.userAlpha.createPrivateEvent("MyCalendar", "Event 3", this.stringParseToDate("02.08.2011"), this.stringParseToDate("3.09.2011"));
-		this.userAlpha.createPrivateEvent("MyCalendar", "Event 2", this.stringParseToDate("08.06.2006"), this.stringParseToDate("10.06.2006"));
-
-		Calendar myCalendar = this.userAlpha.getCalendar("MyCalendar");
+		Calendar myCalendar = userAlpha.getCalendar("MyCalendar");
 
 		Event e1 = myCalendar.getEvent("Event 1", this.stringParseToDate("01.01.2000"));
 		Event e3 = myCalendar.getEvent("Event 3", this.stringParseToDate("02.08.2011"));
@@ -57,7 +46,7 @@ public class SortTest extends TestTemplate
 		checkSortedEvents.add(e2);
 		checkSortedEvents.add(e3);
 
-		ArrayList<IEvent> sortedEvents = this.userAlpha.getMyCalendarAllEventsAtDate("MyCalendar", this.stringParseToDate("01.01.1990"));
+		ArrayList<IEvent> sortedEvents = userAlpha.getMyCalendarAllEventsAtDate("MyCalendar", this.stringParseToDate("01.01.1990"));
 
 		assertEquals(sortedEvents.size(),checkSortedEvents.size());
 
@@ -68,6 +57,5 @@ public class SortTest extends TestTemplate
 
 			assertEquals(eventCheck, eventSorted);
 		}
-		return app;
 	}
 }

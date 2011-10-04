@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<testsuite failures="0" time="0.021" errors="0" skipped="0" tests="7" name="JUnitTests.EventsTest">
+  <testcase classname="JUnitTests.EventsTest" name="newNameOfEventShouldBeAreWeDead" time="0.007">
+      </testcase>
+  <testcase classname="JUnitTests.EventsTest" name="newStartDateOfEventShouldBe01_08_2011" time="0.005">
+      </testcase>
+  <testcase classname="JUnitTests.EventsTest" name="newEndDateOfEventShouldBe01_08_2011" time="0.002">
+      </testcase>
+  <testcase classname="JUnitTests.EventsTest" name="newVisibilityShouldBePublic" time="0.002">
+      </testcase>
+  <testcase classname="JUnitTests.EventsTest" name="newVisibilityShouldBePrivate" time="0.003">
+      </testcase>
+  <testcase classname="JUnitTests.EventsTest" name="userShouldDeleteEvent" time="0.002">
+      </testcase>
+  <testcase classname="JUnitTests.EventsTest" name="doNothingTest" time="0">
+      </testcase>
+</testsuite>

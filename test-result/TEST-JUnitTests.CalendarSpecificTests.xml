@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<testsuite failures="0" time="0.051" errors="0" skipped="0" tests="17" name="JUnitTests.CalendarSpecificTests">
+  <testcase classname="JUnitTests.CalendarSpecificTests" name="userAlphaShouldHaveNoCalendars" time="0.004">
+      </testcase>
+  <testcase classname="JUnitTests.CalendarSpecificTests" name="alphaCalendarNameShouldBeCalendarAlpha" time="0.002">
+      </testcase>
+  <testcase classname="JUnitTests.CalendarSpecificTests" name="alphaCalendarOwnerShouldBeUserAlpha" time="0.002">
+      </testcase>
+  <testcase classname="JUnitTests.CalendarSpecificTests" name="alphaCalendarShouldBeEmpty" time="0.001">
+      </testcase>
+  <testcase classname="JUnitTests.CalendarSpecificTests" name="userAlphaShouldHaveOneCalendar" time="0.001">
+      </testcase>
+  <testcase classname="JUnitTests.CalendarSpecificTests" name="eventNameShouldBeParty" time="0.003">
+      </testcase>
+  <testcase classname="JUnitTests.CalendarSpecificTests" name="eventStartDateShouldBe22_09_2011" time="0.003">
+      </testcase>
+  <testcase classname="JUnitTests.CalendarSpecificTests" name="eventEndDateShouldBe29_09_2011" time="0.003">
+      </testcase>
+  <testcase classname="JUnitTests.CalendarSpecificTests" name="startDateShouldNotBeAfterEndDate" time="0.004">
+      </testcase>
+  <testcase classname="JUnitTests.CalendarSpecificTests" name="deleteEventsTest" time="0.004">
+      </testcase>
+  <testcase classname="JUnitTests.CalendarSpecificTests" name="caledarNameShouldBeUnique" time="0.002">
+      </testcase>
+  <testcase classname="JUnitTests.CalendarSpecificTests" name="shouldGiveCalendarListOfUserAlphaTest" time="0.005">
+      </testcase>
+  <testcase classname="JUnitTests.CalendarSpecificTests" name="shouldRetrieveArrayListEventsContainingInputDateFromCalendar" time="0.004">
+      </testcase>
+  <testcase classname="JUnitTests.CalendarSpecificTests" name="shouldRetrieveIteratorEventsContainingInputDateFromCalendar" time="0.005">
+      </testcase>
+  <testcase classname="JUnitTests.CalendarSpecificTests" name="shouldRetrieveArrayListEventsNotEqualInputDateFromCalendar" time="0.004">
+      </testcase>
+  <testcase classname="JUnitTests.CalendarSpecificTests" name="shouldRetrieveIteratorEventsNotEqualInputDateFromCalendar" time="0.004">
+      </testcase>
+  <testcase classname="JUnitTests.CalendarSpecificTests" name="doNothingTest" time="0">
+      </testcase>
+</testsuite>

@@ -22,31 +22,16 @@ import models.AppExceptions.*;
 
 /** Handles the user database with the corresponding passwords and functions to alter or
  * access the {@link User} objects used for read-write access to calendars and events.
- * Used the singelton pattern
  */
 public final class Authentication
 {
 	private static ArrayList<Tuple> userDatabase;
 	
-	private static Authentication instance;
-	
 	public Authentication()
 	{
-		if(userDatabase==null)
-		{
-			this.userDatabase = new ArrayList<Tuple>();
-		}
+		this.userDatabase = new ArrayList<Tuple>();
 	}
 
-	public synchronized Authentication getAuthentication()
-	{
-		if(instance==null)
-		{
-			instance=new Authentication();
-		}
-		
-		return instance;
-	}
 	
 	private class Tuple
 	{

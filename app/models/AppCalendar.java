@@ -26,25 +26,20 @@ import models.AppExceptions.*;
  */
 public class AppCalendar implements IAppCalendar
 {
-	private static Authentication auth;
+	private  Authentication auth;
 
 	public AppCalendar()
 	{
-		if(auth==null)
-		{
 			auth=new Authentication();
-		}
 	}
 
+	
 	@Override
 	public void createUser(String username, String password) throws UsernameAlreadyExistException, UnknownUserException
 	{
-		System.out.println("HALLO USER: " + username);
 		this.auth.createNewUser(username , password);
 		User user=this.auth.getUser(username);
 		user.save();
-		
-		System.out.println("CREATED NEW USER...");
 	}
 
 	@Override

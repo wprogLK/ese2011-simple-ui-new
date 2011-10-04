@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<testsuite failures="0" time="0.037" errors="0" skipped="0" tests="15" name="JUnitTests.UserSpecificTests">
+  <testcase classname="JUnitTests.UserSpecificTests" name="createAppCalendarExceptionsClass" time="0">
+      </testcase>
+  <testcase classname="JUnitTests.UserSpecificTests" name="userAlphaNameShouldBeAlpha" time="0.002">
+      </testcase>
+  <testcase classname="JUnitTests.UserSpecificTests" name="preventCreatingUserWithAlreadyExistingNameTest" time="0.002">
+      </testcase>
+  <testcase classname="JUnitTests.UserSpecificTests" name="shouldNotRetrieveNonExistentUser" time="0.002">
+      </testcase>
+  <testcase classname="JUnitTests.UserSpecificTests" name="shouldNotRetrieveCalendarOrEventsFromFictitiousUser" time="0.002">
+      </testcase>
+  <testcase classname="JUnitTests.UserSpecificTests" name="calendarOwnerShouldBeUserAlpha" time="0.002">
+      </testcase>
+  <testcase classname="JUnitTests.UserSpecificTests" name="deleteCalendarFromUserAlpha" time="0.003">
+      </testcase>
+  <testcase classname="JUnitTests.UserSpecificTests" name="eventShouldBePrivate" time="0.003">
+      </testcase>
+  <testcase classname="JUnitTests.UserSpecificTests" name="eventShouldBePublic" time="0.002">
+      </testcase>
+  <testcase classname="JUnitTests.UserSpecificTests" name="deleteUserAlpha" time="0.004">
+      </testcase>
+  <testcase classname="JUnitTests.UserSpecificTests" name="userBetaShouldNotAccessForeignUserAcount" time="0.002">
+      </testcase>
+  <testcase classname="JUnitTests.UserSpecificTests" name="changeUserPasswordTest" time="0.006">
+      </testcase>
+  <testcase classname="JUnitTests.UserSpecificTests" name="userBetaShouldSeePublicEventsFromForeignCalendar" time="0.003">
+      </testcase>
+  <testcase classname="JUnitTests.UserSpecificTests" name="invalidCalendarTest" time="0.004">
+      </testcase>
+  <testcase classname="JUnitTests.UserSpecificTests" name="doNothingTest" time="0">
+      </testcase>
+</testsuite>

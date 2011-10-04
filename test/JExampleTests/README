@@ -1,0 +1,3 @@
+all the tests in this package are NOT modified and DO NOT work together with the play! framework
+
+all the test in this package worked in the last exercise, but now most of them are broken, because they don't use the database of the play framework
