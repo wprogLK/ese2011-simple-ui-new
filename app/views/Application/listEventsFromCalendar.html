@@ -1,6 +1,7 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
-<h1>Calendar events</h1>
+<h1>Calendar ${calendarName} events</h1>
+
 #{list eventsList, as :'event'}
 <ul>
 	<li>
@@ -9,5 +10,32 @@
 	<strong>End date:</strong> ${event.endDate.format("dd.MM.yyyy HH:mm")}
 	</li>
 </ul>
+
+
+
 #{/list}
+
+<h1>Add an event</h1>
+CREATE A PUBLIC EVENT:
+<form action = "@{Application.createANewPublicEvent()}" method = "POST">
+	EventName:
+	<input type = "text" name = "eventName"/>
+	StartDate:
+	<input type = "text" name = "startDate"/>
+	EndDate:
+	<input type = "text" name = "endDate"/>
+	<input type = "submit" value="Create public event"/>
+</form>
+
+CREATE A PRIVATE EVENT:
+<form action = "@{Application.createANewPrivateEvent()}" method = "POST">
+	EventName:
+	<input type = "text" name = "eventName"/>
+	StartDate:
+	<input type = "text" name = "startDate"/>
+	EndDate:
+	<input type = "text" name = "endDate"/>
+	<input type = "submit" value="Create private event"/>
+</form>
+<p>
 <a href="@{Application.index()}">Back</a>

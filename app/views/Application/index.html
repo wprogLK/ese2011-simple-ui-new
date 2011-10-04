@@ -27,7 +27,6 @@ You have the following calendars:
     </p>
 #{/if}
 
-
 <p>
 <h2>Manage calendars</h2>
 #{if flash.error}
@@ -53,10 +52,7 @@ You have the following calendars:
 </form>
 <p>
 
----------------------
-
 <h2>See a users calendar</h2>
-//NEW ONE
 
 You have the following calendars:
 	<ul>
@@ -67,23 +63,5 @@ You have the following calendars:
 			#{/list}
 		
 </ul>
-
-
-//OLD ONE
-
-<form action = "@{Application.showPublicEvents(userName, calendarName, startDate)}" method = "GET">
-	Username:
-	<input type = "text" name = "userName" />
-	<p>
-	Calendar name:
-	<input type = "text" name = "calendarName" />
-	<p>
-	Start date:
-	<input type = "text" name = "startDate" />
-	<p>
-	<input type = "submit" value="See public events"/>
-</form>
-
-
 
 <h2><a href="@{Secure.logout()}">Logout</a></h2>

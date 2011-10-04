@@ -14,6 +14,7 @@ import java.util.*;
 import jobs.Bootstrap;
 
 import models.*;
+import models.Calendar;
 import models.AppExceptions.*;
 
 @With(Secure.class)
@@ -21,7 +22,8 @@ public class Application extends Controller
 {
 	public static AppCalendar appCalendar=Bootstrap.getAppCalendar();
 	public static IUser appUser;
-
+	public static Calendar currentCalendar;
+	
     public static void index() throws UnknownUserException
     {
     	List<String> allUserNames = showAllUsers();
@@ -39,6 +41,35 @@ public class Application extends Controller
     	
     }
     
+    public static void createANewEvent(String eventName, String startDate, String endDate, boolean privateEvent) throws ParseException, AccessDeniedException, InvalidDateException, UnknownCalendarException
+    {
+    	getCurrentUser();
+    	
+    	Date start=Helper.parseStringToDate(startDate);
+    	Date end=Helper.parseStringToDate(endDate);
+    	
+    	if(privateEvent)
+    	{
+    		System.out.println("CREATE PRIVATE EVENT");
+    		appUser.createPrivateEvent(currentCalendar.getName(), eventName, start, end);
+    	}
+    	else
+    	{
+    		System.out.println("CREATE PUBLIC EVENT");
+    		appUser.createPublicEvent(currentCalendar.getName(), eventName, start, end);
+    	}
+    	
+    	listEventsFromCalendar(currentCalendar.getName());
+    }
+    public static void createANewPrivateEvent(String eventName, String startDate, String endDate) throws ParseException, AccessDeniedException, InvalidDateException, UnknownCalendarException
+    {
+    	createANewEvent(eventName, startDate, endDate, true);
+    }
+    
+    public static void createANewPublicEvent(String eventName, String startDate, String endDate) throws ParseException, AccessDeniedException, InvalidDateException, UnknownCalendarException
+    {
+    	createANewEvent(eventName, startDate, endDate, false);
+    }
     public static void mainMenuUser() throws UnknownUserException
     {
     	String userName = Security.connected();
@@ -62,6 +93,8 @@ public class Application extends Controller
     
     public static void listEventsFromCalendar(@Required String calendarName) throws UnknownCalendarException, AccessDeniedException, ParseException
     {
+    	currentCalendar=appUser.getCalendar(calendarName);
+    	
     	System.out.println("The appUser is " + appUser);
     	ArrayList<IEvent> eventsList = appUser.getMyCalendarAllEventsAtDate(calendarName, Helper.parseStringToDate("01.01.1970"));
     	render(calendarName, eventsList);
