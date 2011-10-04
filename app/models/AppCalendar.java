@@ -42,7 +42,7 @@ public class AppCalendar implements IAppCalendar
 		System.out.println("HALLO USER: " + username);
 		this.auth.createNewUser(username , password);
 		User user=this.auth.getUser(username);
-		//user.save();
+		user.save();
 		
 		System.out.println("CREATED NEW USER...");
 	}

@@ -82,6 +82,7 @@ public final class Authentication
 
 	public User createNewUser(String username, String password) throws UsernameAlreadyExistException
 	{
+		System.out.println("CREATE NEW USER IN AUTHENTICATION CLASS: " + username +" " + password);
 		isUsernameUnused(username);
 
 		User newUser = new User(username);

@@ -2,12 +2,14 @@
 #{set title:'CalendarApp' /}
 <h1>CalendarApp</h1>
 
-<form action="@{Application.createNewUser()}" method="GET">		
+correct index for register
+
+<form action="@{Register.createNewUser()}" method="GET">		
 			<label for = "username">Username:</label>
-			<input type = "text" name="userName" id="username"/>
+			<input type = "text" name="userName"/>
 		</p>
 			<label for="password">Password:</label>
-			<input type = "password" name = "password" id = "password"/>
+			<input type = "password" name = "password"/>
 		</p>
 		
 		<input type="submit" value="register">

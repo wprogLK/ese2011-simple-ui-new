@@ -40,9 +40,9 @@ public class Application extends Controller
     
     public static void mainMenuUser() throws UnknownUserException
     {
-//    	String userName = Security.connected();
-//    	System.out.println("USERNAME CONNECTED: " + userName);
-//    	List<String> calendarNames = appCalendar.getAllCalendarsNamesFromUser(userName);
+    	String userName = Security.connected();
+    	System.out.println("USERNAME CONNECTED: " + userName);
+    	List<String> calendarNames = appCalendar.getAllCalendarsNamesFromUser(userName);
     	ArrayList<String> allNames=appCalendar.getAllUserNames();
     	System.out.println("USERNAMES:");
     	for(String str:allNames)
@@ -94,14 +94,7 @@ public class Application extends Controller
         index();
     }
     
-    public static void createNewUser(@Required String userName, @Required String password) throws UsernameAlreadyExistException, UnknownUserException
-    {
-    	System.out.println("HELLO USER: " + userName + " with PW " + password);
-    	appCalendar.createUser(userName, password);
-    	
-    	//mainMenuUser();
-    	index();
-    }
+   
 
     public static void deleteCalendar(@Required String calendarName) throws UnknownCalendarException, UnknownUserException
     {
