@@ -2,18 +2,32 @@
 #{set title:'CalendarApp' /}
 <h1>CalendarApp</h1>
 <p>
-Welcome user ${userName}! You are logged in.
-<p>
+Welcome user ${userName}!
+
+#{if !calendarNames.isEmpty()}
+</br>
 You have the following calendars:
-<p>
-<ul>
-	<li>
-	#{list items:calendarNames, as :'calendarName'}
-	<a href="@{Application.listEventsFromCalendar(calendarName)}">${calendarName}</a>
-	<p>
-	#{/list}
-	</li>
+	<ul>
+		<li>
+			#{list items:calendarNames, as :'calendarName'}
+			<a href="@{Application.listEventsFromCalendar(calendarName)}">${calendarName}</a>
+			<p>
+			#{/list}
+		</li>
 </ul>
+#{/if}
+#{if calendarNames.isEmpty()}
+</br>
+	Sorry, but you haven no calendars!
+#{/if}
+
+#{if flash.error}
+    <p style="color:#c00">
+        ${flash.error}
+    </p>
+#{/if}
+
+
 <p>
 <h2>Manage calendars</h2>
 #{if flash.error}
@@ -42,9 +56,22 @@ You have the following calendars:
 ---------------------
 
 <h2>See a users calendar</h2>
+//NEW ONE
+
+You have the following calendars:
+	<ul>
+		
+			#{list items:allUserNames, as :'user'}
+		<li>	<a href="@{Application.showCalendars(user)}">${user}</a></li>
+			<p>
+			#{/list}
+		
+</ul>
 
 
-<form action = "@{Application.getUsersCalendarPublicEventsOverview(userName, calendarName, startDate)}" method = "GET">
+//OLD ONE
+
+<form action = "@{Application.showPublicEvents(userName, calendarName, startDate)}" method = "GET">
 	Username:
 	<input type = "text" name = "userName" />
 	<p>
@@ -56,5 +83,7 @@ You have the following calendars:
 	<p>
 	<input type = "submit" value="See public events"/>
 </form>
+
+
 
 <h2><a href="@{Secure.logout()}">Logout</a></h2>

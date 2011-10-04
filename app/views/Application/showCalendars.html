@@ -1,0 +1,14 @@
+SHOW CALENDARS OF USER ${userName}
+
+<a href="@{Application.showPublicEvents("Alpha","University","01.01.1970")}">Hallo</a>
+
+
+
+<ul>
+		
+			#{list items:allCalendarNames, as :'calendarName'}
+			<li><a href="@{Application.showPublicEvents(userName,calendarName,"01.01.1970")}">${calendarName}</a></li>
+			<p>
+			#{/list}
+		
+</ul>

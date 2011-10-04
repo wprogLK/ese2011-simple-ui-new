@@ -27,6 +27,8 @@ public class Bootstrap extends Job
 			userAlpha.createNewCalendar("University");
 			userAlpha.createPrivateEvent("University", "ESE exercise 2", Helper.parseStringToDate("28.09.2011"), Helper.parseStringToDate("5.10.2011"));
 			userAlpha.createPublicEvent("University", "Holiday", Helper.parseStringToDate("24.12.2011"), Helper.parseStringToDate("15.02.2012"));
+		
+			appCalendar.createUser("Beta", "123");
 		}
 		catch (UsernameAlreadyExistException e)
 		{

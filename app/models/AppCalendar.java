@@ -67,7 +67,7 @@ public class AppCalendar implements IAppCalendar
 	}
 
 	@Override
-	public ArrayList<IEvent> getUsersCalendarPublicEventsOverview(String username, String calendarName, Date date) throws UnknownUserException, UnknownCalendarException, AccessDeniedException
+	public ArrayList<IEvent> getUsersCalendarPublicEventsAtDate(String username, String calendarName, Date date) throws UnknownUserException, UnknownCalendarException, AccessDeniedException
 	{
 		User user = this.auth.getUser(username);
 		return user.getMyCalendarPublicEventsAtDate(calendarName, date);
@@ -77,6 +77,8 @@ public class AppCalendar implements IAppCalendar
 	public Iterator<IEvent> getUsersCalendarPublicEvents(String username, String calendarName, Date startDate) throws UnknownUserException, UnknownCalendarException, AccessDeniedException
 	{
 		User user = this.auth.getUser(username);
+		System.out.println("USER FOR PUBLIC EVENTS IS: " + user.getName());
+		
 		return user.getMyCalendarPublicEventsStartingFrom(calendarName, startDate);
 	}
 

@@ -29,24 +29,8 @@ public class Register extends Controller
 
     public static void createNewUser(@Required String userName, @Required String password) throws UsernameAlreadyExistException, UnknownUserException
     {
-    	System.out.println("HELLO USER: s" + userName + " with PW " + password);
     	appCalendar.createUser(userName, password);
 
     	Application.index();
-    }
-
-  
-    
-    private static void getCurrentUser()
-    {
-    	String userName = Security.connected();
-    	
-    	try 
-    	{
-			appUser=appCalendar.getCurrentUser(userName);
-		} catch (UnknownUserException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
     }
 }

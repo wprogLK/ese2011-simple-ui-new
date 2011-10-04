@@ -124,7 +124,7 @@ public class UserSpecificTests extends TestTemplate
 
 		try
 		{
-			AppCalendar.getUsersCalendarPublicEventsOverview("Beta", "Fictitious Calendar", stringParseToDate("23.9.2011"));
+			AppCalendar.getUsersCalendarPublicEventsFromStartDate("Beta", "Fictitious Calendar", stringParseToDate("23.9.2011"));
 			fail("UnknownUserException expected!");
 		}
 		catch (UnknownUserException e)
@@ -251,7 +251,7 @@ public class UserSpecificTests extends TestTemplate
 		}
 		assertEquals(1, i);
 
-		ArrayList<IEvent> arrayListPublicEvents = AppCalendar.getUsersCalendarPublicEventsOverview("Alpha", "My calendar", this.stringParseToDate("22.01.2011"));
+		ArrayList<IEvent> arrayListPublicEvents = AppCalendar.getUsersCalendarPublicEventsFromStartDate("Alpha", "My calendar", this.stringParseToDate("22.01.2011"));
 		assertEquals("My public event", arrayListPublicEvents.get(0).getEventName());
 		assertEquals(this.stringParseToDate("23.01.2011"), arrayListPublicEvents.get(0).getStartDate());
 		assertEquals(this.stringParseToDate("23.08.2011"), arrayListPublicEvents.get(0).getEndDate());

@@ -210,7 +210,7 @@ public class CalendarSpecificTests extends TestTemplate
 
 		// Retrieve via AppCalendar
 			// Retrieve 2 public events with ArrayList
-				ArrayList<IEvent> AppCalendarPublicEventsDate = AppCalendar.getUsersCalendarPublicEventsOverview("Alpha", "CalendarAlpha", this.stringParseToDate("23.09.2011"));
+				ArrayList<IEvent> AppCalendarPublicEventsDate = AppCalendar.getUsersCalendarPublicEventsFromStartDate("Alpha", "CalendarAlpha", this.stringParseToDate("23.09.2011"));
 				assertEquals(2, AppCalendarPublicEventsDate.size());
 				assertEquals("My public one-day event", AppCalendarPublicEventsDate.get(0).getEventName());
 				assertEquals("My public night event", AppCalendarPublicEventsDate.get(1).getEventName());
@@ -284,7 +284,7 @@ public class CalendarSpecificTests extends TestTemplate
 
 		// Retrieve via AppCalendar
 			// Retrieve 2 public events with ArrayList
-				ArrayList<IEvent> AppCalendarPublicEventsDate = AppCalendar.getUsersCalendarPublicEventsOverview("Alpha", "CalendarAlpha", this.stringParseToDate("23.09.2011"));
+				ArrayList<IEvent> AppCalendarPublicEventsDate = AppCalendar.getUsersCalendarPublicEventsFromStartDate("Alpha", "CalendarAlpha", this.stringParseToDate("23.09.2011"));
 				assertEquals(2, AppCalendarPublicEventsDate.size());
 				assertEquals("My public one-day event", AppCalendarPublicEventsDate.get(0).getEventName());
 				assertEquals("My public night event", AppCalendarPublicEventsDate.get(1).getEventName());

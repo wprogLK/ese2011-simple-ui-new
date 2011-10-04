@@ -180,6 +180,8 @@ public class Calendar implements ICalendar
 				output.add(event);
 			}
 		}
+		
+		System.out.println("EVENTS LIST IS: " + output);
 		return output;
 	}
 

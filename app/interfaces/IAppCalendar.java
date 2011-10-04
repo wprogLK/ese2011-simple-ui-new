@@ -69,7 +69,7 @@ public interface IAppCalendar
 		 * @throws AccessDeniedException When passwords do not match up.
 		 * @see IAppCalendar#loginUser(String, String)
 		 */
-		public ArrayList<IEvent> getUsersCalendarPublicEventsOverview(String username, String calendarName, Date date) throws UnknownUserException, UnknownCalendarException, AccessDeniedException;
+		public ArrayList<IEvent> getUsersCalendarPublicEventsAtDate(String username, String calendarName, Date date) throws UnknownUserException, UnknownCalendarException, AccessDeniedException;
 
 		/**
 		 * Returns all public events from a {@link ICalendar} that start at the given date {@code startDate} as an {@link Iterator}.

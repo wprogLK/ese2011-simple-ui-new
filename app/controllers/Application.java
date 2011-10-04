@@ -24,12 +24,13 @@ public class Application extends Controller
 
     public static void index() throws UnknownUserException
     {
+    	List<String> allUserNames = showAllUsers();
     	String userName = Security.connected();
     	getCurrentUser();
     	if(userName!=null)
     	{
     		List<String> calendarNames = appCalendar.getAllCalendarsNamesFromUser(userName);
-        	render(calendarNames, userName);
+        	render(calendarNames, userName, allUserNames);
     	}
     	else
     	{
@@ -57,6 +58,8 @@ public class Application extends Controller
     	return appCalendar.getAllUserNames();
     }
     
+
+    
     public static void listEventsFromCalendar(@Required String calendarName) throws UnknownCalendarException, AccessDeniedException, ParseException
     {
     	System.out.println("The appUser is " + appUser);
@@ -69,7 +72,7 @@ public class Application extends Controller
 		return appCalendar;
     }
 
-    public static void getUsersCalendarPublicEventsOverview(@Required String userName, @Required String calendarName, @Required String startDate) throws UnknownUserException, AccessDeniedException, UnknownCalendarException, ParseException, UsernameAlreadyExistException, CalendarIsNotUniqueException, InvalidDateException
+    public static void showPublicEvents(@Required String userName, @Required String calendarName, @Required String startDate) throws UnknownUserException, AccessDeniedException, UnknownCalendarException, ParseException, UsernameAlreadyExistException, CalendarIsNotUniqueException, InvalidDateException
     {
         if(validation.hasErrors())
         {
@@ -77,10 +80,23 @@ public class Application extends Controller
             index();
         }
 
-    	ArrayList<IEvent> publicEvents = appCalendar.getUsersCalendarPublicEventsOverview(userName, calendarName, Helper.parseStringToDate(startDate));
-    	render(userName, calendarName, publicEvents);
+        Date realStartDate= Helper.parseStringToDate(startDate);
+        Iterator<IEvent> publicEventsIterator = appCalendar.getUsersCalendarPublicEvents(userName, calendarName, realStartDate);
+        System.out.println("Events (Iterator) are " + publicEventsIterator.hasNext());
+        
+        ArrayList<IEvent> events=new ArrayList<IEvent>();
+    	
+    	while(publicEventsIterator.hasNext())
+    	{
+    		IEvent currentEvent=publicEventsIterator.next();
+    		System.out.println("CURRENT EVENT IS: " + currentEvent.getEventName());
+    		events.add(currentEvent) ;
+    	}
+        
+    	render(events, userName, calendarName);
     }
 
+    
     public static void createNewCalendar(@Required String calendarName) throws CalendarIsNotUniqueException, UnknownUserException
     {
     	
@@ -124,6 +140,12 @@ public class Application extends Controller
     		error(e);
     	}
     	render(userName);
+    }
+    
+    public static void showCalendars(String userName) throws UnknownUserException
+    {
+    	ArrayList<String> allCalendarNames=appCalendar.getAllCalendarsNamesFromUser(userName);
+    	render(allCalendarNames, userName);
     }
     
     private static void getCurrentUser()
