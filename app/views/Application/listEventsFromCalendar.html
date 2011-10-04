@@ -1,0 +1,13 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+<h1>Calendar events</h1>
+#{list eventsList, as :'event'}
+<ul>
+	<li>
+	<strong>Event:</strong> ${event.eventName}
+	<strong>Start date:</strong> ${event.startDate.format("dd.MM.yyyy HH:mm")}
+	<strong>End date:</strong> ${event.endDate.format("dd.MM.yyyy HH:mm")}
+	</li>
+</ul>
+#{/list}
+<a href="@{Application.index()}">Back</a>

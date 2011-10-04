@@ -1,0 +1,60 @@
+#{extends 'main.html' /}
+#{set title:'CalendarApp' /}
+<h1>CalendarApp</h1>
+<p>
+Welcome user ${userName}! You are logged in.
+<p>
+You have the following calendars:
+<p>
+<ul>
+	<li>
+	#{list items:calendarNames, as :'calendarName'}
+	<a href="@{Application.listEventsFromCalendar(calendarName)}">${calendarName}</a>
+	<p>
+	#{/list}
+	</li>
+</ul>
+<p>
+<h2>Manage calendars</h2>
+#{if flash.error}
+    <p style="color:#c00">
+        ${flash.error}
+    </p>
+#{/if}
+<p>
+<h3>Create new calendar</h3>
+<form action = "@{Application.createNewCalendar()}" method = "POST">
+	Calendar name:
+	<input type = "text" name = "calendarName"/>
+	<input type = "submit" value="Create new calendar"/>
+</form>
+<p>
+<h2>Manage calendars</h2>
+<p>
+<h3>Delete calendar</h3>
+<form action = "@{Application.deleteCalendar()}" method = "POST">
+	Calendar name:
+	<input type = "text" name = "calendarName"/>
+	<input type = "submit" value="Delete calendar"/>
+</form>
+<p>
+
+---------------------
+
+<h2>See a users calendar</h2>
+
+
+<form action = "@{Application.getUsersCalendarPublicEventsOverview(userName, calendarName, startDate)}" method = "GET">
+	Username:
+	<input type = "text" name = "userName" />
+	<p>
+	Calendar name:
+	<input type = "text" name = "calendarName" />
+	<p>
+	Start date:
+	<input type = "text" name = "startDate" />
+	<p>
+	<input type = "submit" value="See public events"/>
+</form>
+
+<h2><a href="@{Secure.logout()}">Logout</a></h2>

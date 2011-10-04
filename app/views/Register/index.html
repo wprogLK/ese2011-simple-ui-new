@@ -1,0 +1,14 @@
+#{extends 'main.html' /}
+#{set title:'CalendarApp' /}
+<h1>CalendarApp</h1>
+
+<form action="@{Application.createNewUser()}" method="GET">		
+			<label for = "username">Username:</label>
+			<input type = "text" name="userName" id="username"/>
+		</p>
+			<label for="password">Password:</label>
+			<input type = "password" name = "password" id = "password"/>
+		</p>
+		
+		<input type="submit" value="register">
+</form>
