@@ -1,0 +1,17 @@
+1. Explain how a typical HTTP request is processed with the framework (the request lifecycle)
+
+Response: Controller changes the models in effect. (User clicks "Login")
+          Controller tells server, that data has just changed. ("Login" command reaches controller)
+Request: Server changes data in model. (Framework sets user as "logged in")
+         Server requests view to update itself (User sees main page)
+
+2. How could you test user interfaces with the testing facilities in play! framework?
+
+Tests for the play! framework can be written in two ways: With conventional JUnit tests or with play!'s built-in test suite Selenium.
+JUnit tests can used to check the state of objects at a certain point of time during execution.
+They are not suited when website interaction should be tested.
+
+This is where Selenium is used: It simulates an interactive browsing session running certain actions one by one.
+It also has assertions available, that can test objects out of reach of Java like HTML object ids or windows titles.
+
+Unlike JUnit tests, Selenium tests are written in a HTML like style.

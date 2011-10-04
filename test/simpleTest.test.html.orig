@@ -1,0 +1,29 @@
+<<<<<<< HEAD
+	#{selenium "createUserAlpha"}
+		clearSession()
+		open('register/index')
+		type('userName', 'Alpha')
+		type('password', '123')
+		clickAndWait('register')
+		
+		open('secure/login')
+		type('username', 'Alpha')
+		type('password', '123')
+		clickAndWait('signin')
+	#{/selenium}
+	
+=======
+#{selenium "createUserAlpha"}
+	clearSession()
+	open("register/index")
+	type("userName", "Alpha")
+	type("password", "123")
+	clickAndWait("register")
+
+	assertPresent("Login")
+	open("secure/login")
+	type("username", "Alpha")
+	type("password", "123")
+	clickAndWait("signin")
+#{/selenium}
+>>>>>>> 020806af4923afa8308e2adbaf3b5603cc9ed84a
