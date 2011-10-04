@@ -1,0 +1,153 @@
+<html>
+    <head>
+        <title>Test results for jExampleTest.SortTest.class</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <style type="text/css">
+            body {
+                font-family: Arial, Sans;
+                margin: 0;
+                padding: 0;
+            }
+            table {
+                width: 100%;
+            }
+            #header {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+            #results {
+                padding: 15px;
+            }
+            #header h1 {
+                margin-top: 0;
+            }
+            #header.success {
+                background: #81CF5A !important;
+            }
+            .passed span {
+                background: #81CF5A !important;
+                padding: 3px 5px;
+            }
+            #header.failed {
+                background: #EF6868 !important;
+            }
+            .failed span {
+                background: #EF6868 !important;
+                padding: 3px 5px;
+            }
+            table .source {
+                margin-top: 10px;
+            }
+            table .source span {
+                color: #fff;
+                font-size: 85%;
+                padding: 1px 3px;
+                background: #666;
+            }
+            table .sourceLine {
+                border-left: 3px solid #c00;
+                padding: 4px 3px;
+                color: #000;
+                font-size: 85%;
+                margin-bottom: 10px;
+            }
+            .error {
+                color: #c00;
+            }
+            table td {
+                padding: 5px 0;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div id="header" class="block failed">
+            <h1>
+                jExampleTest.SortTest.class
+            </h1>
+            <p>
+                FAILED
+            </p>
+        </div>
+        
+        <div id="results">
+            <table>
+                                <tr>
+                    <td width="20%" class="failed" valign="top">
+                        <span>sortTest</span>
+                    </td>
+                    <td class="error" valign="top">
+                                                <strong>A models.AppExceptions$UsernameAlreadyExistException has been caught, The user &quot;Alpha&quot; already exists! Please choose another name!</strong>
+                                                <div class="source">
+                            <span>In /test/jExampleTest/SortTest.java, line 34 :</span>
+                        </div>
+                        <div class="sourceLine">
+                            <span>
+                                
+                                    		app.createUser(&quot;Alpha&quot;, &quot;123&quot;);
+                                
+                            </span>
+                        </div>
+                                                                        <a href="#" onclick="toggle_trace(this); return false;">Show trace</a>
+                        <pre data-role="trace">models.AppExceptions$UsernameAlreadyExistException: The user "Alpha" already exists! Please choose another name!
+	at models.Authentication.isUsernameUnused(Authentication.java:100)
+	at models.Authentication.createNewUser(Authentication.java:86)
+	at models.AppCalendar.createUser(AppCalendar.java:43)
+	at jExampleTest.SortTest.sortTest(SortTest.java:34)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at ch.unibe.jexample.internal.util.MethodReference.invoke(MethodReference.java:126)
+	at ch.unibe.jexample.internal.Example.bareInvoke(Example.java:115)
+	at ch.unibe.jexample.internal.ExampleRunner.runExample(ExampleRunner.java:105)
+	at ch.unibe.jexample.internal.ExampleRunner.run(ExampleRunner.java:40)
+	at ch.unibe.jexample.internal.Example.run(Example.java:87)
+	at ch.unibe.jexample.internal.ExampleGraph.run(ExampleGraph.java:108)
+	at ch.unibe.jexample.internal.ExampleClass.run(ExampleClass.java:77)
+	at ch.unibe.jexample.JExample.run(JExample.java:52)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:24)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:136)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:117)
+	at play.test.TestEngine.run(TestEngine.java:101)
+	at controllers.TestRunner.run(TestRunner.java:67)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:546)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:500)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:476)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:471)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:159)
+	at play.server.PlayHandler$NettyInvocation.execute(PlayHandler.java:220)
+	at play.Invoker$Invocation.run(Invoker.java:265)
+	at play.server.PlayHandler$NettyInvocation.run(PlayHandler.java:200)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$101(ScheduledThreadPoolExecutor.java:165)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:679)
+</pre>
+                                                                                            </td>
+                    <td width="5%" align="right" class="time" valign="top">
+                        7 ms
+                    </td>
+                </tr>
+                            </table>
+        </div>
+        
+    </body>
+</html>
+
