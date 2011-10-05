@@ -67,7 +67,6 @@ public final class Authentication
 
 	public User createNewUser(String username, String password) throws UsernameAlreadyExistException
 	{
-		System.out.println("CREATE NEW USER IN AUTHENTICATION CLASS: " + username +" " + password);
 		isUsernameUnused(username);
 
 		User newUser = new User(username);
@@ -103,8 +102,6 @@ public final class Authentication
 	 */
 	public User getUser(String username, String password) throws UnknownUserException, AccessDeniedException
 	{
-		System.out.println("Looking for user: " + username);
-		
 		Iterator<Tuple> iteratorUsers = this.userDatabase.iterator();
 		while (iteratorUsers.hasNext())
 		{
@@ -133,14 +130,7 @@ public final class Authentication
 	 * @throws UnknownUserException If {@code username} is not in the database.
 	 */
 	public User getUser(String username) throws UnknownUserException
-	{
-		System.out.println("ALL USERS:" );
-		
-		for(Tuple t:this.userDatabase)
-		{
-			System.out.println(t.toString());
-		}
-		
+	{	
 		Iterator<Tuple> iteratorUsers = this.userDatabase.iterator();
 		while (iteratorUsers.hasNext())
 		{

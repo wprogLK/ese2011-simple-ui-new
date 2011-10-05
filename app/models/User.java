@@ -108,7 +108,6 @@ public class User extends Model implements IUser
 	{
 		Calendar calendar = this.getCalendar(calendarName);
 		
-		System.out.println("CALENDAR is" + calendar);
 		return calendar.getAllPublicEventsStartingFrom(startDate);
 	}
 

@@ -72,7 +72,6 @@ public class AppCalendar implements IAppCalendar
 	public Iterator<IEvent> getUsersCalendarPublicEvents(String username, String calendarName, Date startDate) throws UnknownUserException, UnknownCalendarException, AccessDeniedException
 	{
 		User user = this.auth.getUser(username);
-		System.out.println("USER FOR PUBLIC EVENTS IS: " + user.getName());
 		
 		return user.getMyCalendarPublicEventsStartingFrom(calendarName, startDate);
 	}

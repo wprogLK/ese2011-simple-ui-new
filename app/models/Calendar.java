@@ -181,7 +181,6 @@ public class Calendar implements ICalendar
 			}
 		}
 		
-		System.out.println("EVENTS LIST IS: " + output);
 		return output;
 	}
 
